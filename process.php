@@ -1,6 +1,14 @@
 #!/usr/bin/php
 <?php
 
+/*
+
+http://github.com/jwestbrook/PrototypeJS-docset
+
+*/
+
+
+
 $seenpages = array();
 
 
