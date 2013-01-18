@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <title>Prototype  v1.7 API documentation | Function#wrap</title>
+  <link charset="utf-8" href="../../../../stylesheets/pdoc/api.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link charset="utf-8" href="../../../../stylesheets/pdoc/pygments.css" media="screen, projection" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div id="page">
+      <div id="main" class="page-content">
+<ul class="breadcrumbs clearfix">
+  <li><a href="../../../../">Home</a></li>
+    <li>&rarr; <a href="../../../../language/" title="Language section">Language</a></li>
+    <li>&rarr; <a href="../../../../language/Function/" title="Function (class)">Function</a></li>
+    <li>&rarr; <a href="../../../../language/Function/prototype/wrap/" title="Function#wrap (instance method)">wrap</a></li>
+</ul>
+<h2 class="page-title">
+  <span class="type">instance method</span> Function#wrap
+</h2>
+  <p id="src_code_href"><a href="https://github.com/sstephenson/prototype/blob/1fb9728/src/lang/function.js#L315">View source on GitHub &rarr;</a></p>
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Function#wrap(wrapper) &rarr; <a href="../../../../language/Function/" title="Function (class)">Function</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">wrapper</code>
+          <span class="argument-types">(<code><a href="../../../../language/Function/" title="Function (class)">Function</a></code>)</span>
+         &ndash; The function to use as a wrapper.
+      </li>
+  </ul> <!-- .argument-list -->
+      <p>Returns a function "wrapped" around the original function.</p>
+<p><code><a href="../../../../language/Function/prototype/wrap/" title="Function#wrap (instance method)">Function#wrap</a></code> distills the essence of aspect-oriented programming into
+a single method, letting you easily build on existing functions by
+specifying before and after behavior, transforming the return value, or
+even preventing the original function from being called.</p>
+<p>The wraper function is called with this signature:</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">wrapper</span><span class="p">(</span><span class="nx">callOriginal</span><span class="p">[,</span> <span class="nx">args</span><span class="p">...])</span>
+</pre>
+</div>
+<p>...where <code>callOriginal</code> is a function that can be used to call the
+original (wrapped) function (or not, as appropriate). (<code>callOriginal</code> is
+not a direct reference to the original function, there's a layer of
+indirection in-between that sets up the proper context [<code>this</code> value] for
+it.)</p>
+<h5>Example</h5>
+<div class="highlight"><pre><span class="c1">// Wrap String#capitalize so it accepts an additional argument</span>
+<span class="nb">String</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">capitalize</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">capitalize</span><span class="p">.</span><span class="nx">wrap</span><span class="p">(</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">callOriginal</span><span class="p">,</span> <span class="nx">eachWord</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">eachWord</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">include</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">))</span> <span class="p">{</span>
+      <span class="c1">// capitalize each word in the string</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">).</span><span class="nx">invoke</span><span class="p">(</span><span class="s2">&quot;capitalize&quot;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// proceed using the original function</span>
+      <span class="k">return</span> <span class="nx">callOriginal</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+ <span class="s2">&quot;hello world&quot;</span><span class="p">.</span><span class="nx">capitalize</span><span class="p">();</span>
+<span class="c1">// -&gt; &quot;Hello world&quot; (only the &#39;H&#39; is capitalized)</span>
+<span class="s2">&quot;hello world&quot;</span><span class="p">.</span><span class="nx">capitalize</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="c1">// -&gt; &quot;Hello World&quot; (both &#39;H&#39; and &#39;W&#39; are capitalized)</span>
+</pre>
+</div>
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+      </div> <!-- #main -->
+      <div id="footer">
+        <p><a href="http://prototypejs.org">Prototype JavaScript Framework</a> v1.7 API documentation.</p>
+        <p>
+            Last updated on November 16, 2010 at 10:11 UTC.
+          Generated by <a href="http://pdoc.org">PDoc</a>.
+          Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> and portions of <a href="http://github.com/280north/aristo/tree/master" title="280north's aristo at master - GitHub">Aristo</a>.
+        </p>
+        <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</p>
+      </div> <!-- #footer -->
+    </div> <!-- #page -->
+  </body>
+</html>

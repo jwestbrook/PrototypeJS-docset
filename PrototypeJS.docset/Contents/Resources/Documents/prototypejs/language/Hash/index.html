@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <title>Prototype  v1.7 API documentation | Hash</title>
+  <link charset="utf-8" href="../../stylesheets/pdoc/api.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link charset="utf-8" href="../../stylesheets/pdoc/pygments.css" media="screen, projection" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div id="page">
+      <div id="main" class="page-content">
+<ul class="breadcrumbs clearfix">
+  <li><a href="../../">Home</a></li>
+    <li>&rarr; <a href="../../language/" title="Language section">Language</a></li>
+    <li>&rarr; <a href="../../language/Hash/" title="Hash (class)">Hash</a></li>
+</ul>
+<h2 class="page-title">
+  <span class="type">class</span> Hash
+</h2>
+  <p id="src_code_href"><a href="https://github.com/sstephenson/prototype/blob/1fb9728/src/lang/hash.js#L46">View source on GitHub &rarr;</a></p>
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+    <p>A set of key/value pairs.</p>
+<p><code><a href="../../language/Hash/" title="Hash (class)">Hash</a></code> can be thought of as an associative array, binding unique keys to
+values (which are not necessarily unique), though it can not guarantee
+consistent order its elements when iterating. Because of the nature of
+JavaScript, every object is in fact a hash; but <code><a href="../../language/Hash/" title="Hash (class)">Hash</a></code> adds a number of
+methods that let you enumerate keys and values, iterate over key/value
+pairs, merge two hashes together, and much more.</p>
+<h5>Creating a hash</h5>
+<p>You can create a Hash either via <code>new Hash()</code> or the convenience alias
+<code>$H()</code>; there is <strong>no</strong> difference between them. In either case, you may
+optionally pass in an object to seed the <code><a href="../../language/Hash/" title="Hash (class)">Hash</a></code>. If you pass in a <code><a href="../../language/Hash/" title="Hash (class)">Hash</a></code>,
+it will be cloned.</p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+                  <div class="section section-subclasses">
+                <div class="section-title">
+                  <h3>Subclasses</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+      <p><code><a href="../../dom/Element/Layout/" title="Element.Layout (class)">Element.Layout</a></code></p>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+                <div class="section section-mixins">
+                <div class="section-title">
+                  <h3>Includes</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+    <p><code><a href="../../language/Enumerable/" title="Enumerable (mixin)">Enumerable</a></code></p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+                <div class="section section-constructor">
+                <div class="section-title">
+                  <h3>Constructor</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+    <p><code><a href="../../language/Hash/new/" title="new Hash (constructor)">new Hash</a></code></p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+                  <div class="section section-instance_methods">
+                <div class="section-title">
+                  <h3>Instance methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+      <ul class="method-list">
+        <li><code><a class="instance-method" href="../../language/Hash/prototype/clone/" title="Hash#clone (instance method)">clone</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/each/" title="Hash#each (instance method)">each</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/get/" title="Hash#get (instance method)">get</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/index/" title="Hash#index (instance method)">index</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/inspect/" title="Hash#inspect (instance method)">inspect</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/keys/" title="Hash#keys (instance method)">keys</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/merge/" title="Hash#merge (instance method)">merge</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/set/" title="Hash#set (instance method)">set</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/toJSON/" title="Hash#toJSON (instance method)">toJSON</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/toObject/" title="Hash#toObject (instance method)">toObject</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/toQueryString/" title="Hash#toQueryString (instance method)">toQueryString</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/toTemplateReplacements/" title="Hash#toTemplateReplacements (instance method)">toTemplateReplacements</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/unset/" title="Hash#unset (instance method)">unset</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/update/" title="Hash#update (instance method)">update</a></code></li>
+<li><code><a class="instance-method" href="../../language/Hash/prototype/values/" title="Hash#values (instance method)">values</a></code></li>
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+      </div> <!-- #main -->
+      <div id="footer">
+        <p><a href="http://prototypejs.org">Prototype JavaScript Framework</a> v1.7 API documentation.</p>
+        <p>
+            Last updated on November 16, 2010 at 10:11 UTC.
+          Generated by <a href="http://pdoc.org">PDoc</a>.
+          Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> and portions of <a href="http://github.com/280north/aristo/tree/master" title="280north's aristo at master - GitHub">Aristo</a>.
+        </p>
+        <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</p>
+      </div> <!-- #footer -->
+    </div> <!-- #page -->
+  </body>
+</html>

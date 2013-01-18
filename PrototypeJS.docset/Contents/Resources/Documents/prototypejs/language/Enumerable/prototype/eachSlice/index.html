@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <title>Prototype  v1.7 API documentation | Enumerable#eachSlice</title>
+  <link charset="utf-8" href="../../../../stylesheets/pdoc/api.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link charset="utf-8" href="../../../../stylesheets/pdoc/pygments.css" media="screen, projection" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div id="page">
+      <div id="main" class="page-content">
+<ul class="breadcrumbs clearfix">
+  <li><a href="../../../../">Home</a></li>
+    <li>&rarr; <a href="../../../../language/" title="Language section">Language</a></li>
+    <li>&rarr; <a href="../../../../language/Enumerable/" title="Enumerable (mixin)">Enumerable</a></li>
+    <li>&rarr; <a href="../../../../language/Enumerable/prototype/eachSlice/" title="Enumerable#eachSlice (instance method)">eachSlice</a></li>
+</ul>
+<h2 class="page-title">
+  <span class="type">instance method</span> Enumerable#eachSlice
+</h2>
+  <p id="src_code_href"><a href="https://github.com/sstephenson/prototype/blob/1fb9728/src/lang/enumerable.js#L149">View source on GitHub &rarr;</a></p>
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Enumerable#eachSlice(number[, iterator = Prototype.K[, context]]) &rarr; <a href="../../../../language/Enumerable/" title="Enumerable (mixin)">Enumerable</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">number</code>
+          <span class="argument-types">(<code><a href="../../../../language/Number/" title="Number (class)">Number</a></code>)</span>
+         &ndash; The number of items to include in each slice.
+      </li>
+      <li>
+        <code class="argument-name">iterator</code>
+          <span class="argument-types">(<code><a href="../../../../language/Function/" title="Function (class)">Function</a></code>)</span>
+         &ndash; An optional function to use to transform each element before it's included in the slice; if this is not provided, the element itself is included.
+      </li>
+      <li>
+        <code class="argument-name">context</code>
+          <span class="argument-types">(<code><a href="../../../../language/Object/" title="Object (class)">Object</a></code>)</span>
+         &ndash; An optional object to use as <code>this</code> within calls to the iterator.
+      </li>
+  </ul> <!-- .argument-list -->
+      <p>Groups items into chunks of the given size. The final "slice" may have
+fewer than <code>number</code> items; it won't "pad" the last group with empty
+values. For that behavior, use <code><a href="../../../../language/Enumerable/prototype/inGroupsOf/" title="Enumerable#inGroupsOf (instance method)">Enumerable#inGroupsOf</a></code>.</p>
+<h5>Example</h5>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">students</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Sunny&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">20</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Audrey&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">21</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Matt&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">20</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Amelie&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">26</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Will&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">21</span> <span class="p">}</span>
+<span class="p">];</span>
+ <span class="nx">students</span><span class="p">.</span><span class="nx">eachSlice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">student</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">student</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="c1">// -&gt; [[&#39;Sunny&#39;, &#39;Audrey&#39;, &#39;Matt&#39;], [&#39;Amelie&#39;, &#39;Will&#39;]]</span>
+</pre>
+</div>
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+      </div> <!-- #main -->
+      <div id="footer">
+        <p><a href="http://prototypejs.org">Prototype JavaScript Framework</a> v1.7 API documentation.</p>
+        <p>
+            Last updated on November 16, 2010 at 10:11 UTC.
+          Generated by <a href="http://pdoc.org">PDoc</a>.
+          Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> and portions of <a href="http://github.com/280north/aristo/tree/master" title="280north's aristo at master - GitHub">Aristo</a>.
+        </p>
+        <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</p>
+      </div> <!-- #footer -->
+    </div> <!-- #page -->
+  </body>
+</html>

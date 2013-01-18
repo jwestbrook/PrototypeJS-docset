@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <title>Prototype  v1.7 API documentation | Try.these</title>
+  <link charset="utf-8" href="../../../stylesheets/pdoc/api.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link charset="utf-8" href="../../../stylesheets/pdoc/pygments.css" media="screen, projection" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div id="page">
+      <div id="main" class="page-content">
+  <div id="deprecated"><img alt="Deprecated" height="150" src="../../../images/pdoc/deprecated.png" width="150" /></div>
+<ul class="breadcrumbs clearfix">
+  <li><a href="../../../">Home</a></li>
+    <li>&rarr; <a href="../../../language/" title="Language section">Language</a></li>
+    <li>&rarr; <a href="../../../language/Try/" title="Try (namespace)">Try</a></li>
+    <li>&rarr; <a href="../../../language/Try/these/" title="Try.these (class method)">these</a></li>
+</ul>
+<h2 class="page-title">
+  <span class="type">class method</span> Try.these
+</h2>
+  <p id="src_code_href"><a href="https://github.com/sstephenson/prototype/blob/1fb9728/src/lang.js#L52">View source on GitHub &rarr;</a></p>
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Try.these(function...) &rarr; ?</code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">function</code>
+          <span class="argument-types">(<code><a href="../../../language/Function/" title="Function (class)">Function</a></code>)</span>
+         &ndash; A function that may throw an exception.
+      </li>
+  </ul> <!-- .argument-list -->
+      <p>Accepts an arbitrary number of functions and returns the result of the
+first one that doesn't throw an error.</p>
+<p><strong>This method is deprecated.</strong></p>
+<h5>More information</h5>
+<p><code><a href="../../../language/Try/these/" title="Try.these (class method)">Try.these</a></code> provides a simple idiom for trying out blocks of code in
+sequence. Such a sequence of attempts usually represents a downgrading
+approach to obtaining a given feature.</p>
+<p>In this example from Prototype's <a href="../../../ajax/Ajax/" title="Ajax (namespace)">Ajax</a> internals, we want to get an
+<code>XMLHttpRequest</code> object. Internet Explorer 6 and earlier, however, does not
+provide it as a vanilla JavaScript object, and will throw an error if we
+attempt a simple instantiation. Also, over time, its proprietary way
+evolved, changing COM interface names.</p>
+<p><code><a href="../../../language/Try/these/" title="Try.these (class method)">Try.these</a></code> will try several ways in sequence, from the best (and,
+theoretically, most widespread) one to the oldest and rarest way, returning
+the result of the first successful function.</p>
+<p>If none of the blocks succeeded, <code><a href="../../../language/Try/these/" title="Try.these (class method)">Try.these</a></code> will return <code>undefined</code>, which
+will cause the <code>Ajax.getTransport</code> method in the example below to return
+<code>false</code>, provided as a fallback result value.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">Ajax</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">getTransport</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">Try</span><span class="p">.</span><span class="nx">these</span><span class="p">(</span>
+      <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">()</span> <span class="p">},</span>
+      <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="s1">&#39;Msxml2.XMLHTTP&#39;</span><span class="p">)</span> <span class="p">},</span>
+      <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="s1">&#39;Microsoft.XMLHTTP&#39;</span><span class="p">)</span> <span class="p">}</span>
+    <span class="p">)</span> <span class="o">||</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre>
+</div>
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+      </div> <!-- #main -->
+      <div id="footer">
+        <p><a href="http://prototypejs.org">Prototype JavaScript Framework</a> v1.7 API documentation.</p>
+        <p>
+            Last updated on November 16, 2010 at 10:11 UTC.
+          Generated by <a href="http://pdoc.org">PDoc</a>.
+          Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> and portions of <a href="http://github.com/280north/aristo/tree/master" title="280north's aristo at master - GitHub">Aristo</a>.
+        </p>
+        <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</p>
+      </div> <!-- #footer -->
+    </div> <!-- #page -->
+  </body>
+</html>

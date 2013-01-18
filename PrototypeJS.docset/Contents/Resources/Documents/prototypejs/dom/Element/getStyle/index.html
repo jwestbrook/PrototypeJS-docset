@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <title>Prototype  v1.7 API documentation | Element.getStyle</title>
+  <link charset="utf-8" href="../../../stylesheets/pdoc/api.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link charset="utf-8" href="../../../stylesheets/pdoc/pygments.css" media="screen, projection" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div id="page">
+      <div id="main" class="page-content">
+<ul class="breadcrumbs clearfix">
+  <li><a href="../../../">Home</a></li>
+    <li>&rarr; <a href="../../../dom/" title="DOM section">DOM</a></li>
+    <li>&rarr; <a href="../../../dom/Element/" title="Element (class)">Element</a></li>
+    <li>&rarr; <a href="../../../dom/Element/getStyle/" title="Element.getStyle (class method)">getStyle</a></li>
+</ul>
+<h2 class="page-title">
+  <span class="type">class method</span> Element.getStyle
+</h2>
+  <p id="src_code_href"><a href="https://github.com/sstephenson/prototype/blob/1fb9728/src/dom/dom.js#L2261">View source on GitHub &rarr;</a></p>
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element.getStyle(element, style) &rarr; <a href="../../../language/String/" title="String (class)">String</a> | null</code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">style</code>
+          <span class="argument-types">(<code><a href="../../../language/String/" title="String (class)">String</a></code>)</span>
+         &ndash; The property name to be retrieved.
+      </li>
+  </ul> <!-- .argument-list -->
+      <p>Returns the given CSS property value of <code>element</code>. The property can be
+specified in either its CSS form (<code>font-size</code>) or its camelized form
+(<code>fontSize</code>).</p>
+<p>This method looks up the CSS property of an element whether it was
+applied inline or in a stylesheet. It works around browser inconsistencies
+regarding <code>float</code>, <code>opacity</code>, which returns a value between <code>0</code>
+(fully transparent) and <code>1</code> (fully opaque), position properties
+(<code>left</code>, <code>top</code>, <code>right</code> and <code>bottom</code>) and when getting the dimensions
+(<code>width</code> or <code>height</code>) of hidden elements.</p>
+<h5>Examples</h5>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">getStyle</span><span class="p">(</span><span class="s1">&#39;font-size&#39;</span><span class="p">);</span>
+<span class="c1">// equivalent:</span>
+ <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">getStyle</span><span class="p">(</span><span class="s1">&#39;fontSize&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; &#39;12px&#39;</span>
+</pre>
+</div>
+<h5>Notes</h5>
+<p>Internet Explorer returns literal values while other browsers return
+computed values.</p>
+<p>Consider the following HTML snippet:</p>
+<div class="highlight"><pre><span class="nt">&lt;style&gt;</span>
+  <span class="nf">#test</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">12px</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;test&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre>
+</div>
+<p>Then:</p>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">).</span><span class="nx">getStyle</span><span class="p">(</span><span class="s1">&#39;margin-left&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; &#39;1em&#39; in Internet Explorer,</span>
+<span class="c1">// -&gt; &#39;12px&#39; elsewhere.</span>
+</pre>
+</div>
+<p>Safari returns <code>null</code> for <em>any</em> non-inline property if the element is
+hidden (has <code>display</code> set to <code>'none'</code>).</p>
+<p>Not all CSS shorthand properties are supported. You may only use the CSS
+properties described in the
+<a href="http://www.w3.org/TR/DOM-Level-2-Style/css.html#CSS-ElementCSSInlineStyle">Document Object Model (DOM) Level 2 Style Specification</a>.</p>
+        <p class="note">
+      This method can be called <em>either</em> as an <a href="../../../dom/Element/prototype/getStyle/">instance method</a> <em>or</em> as a generic method.
+  If calling as a generic, pass the instance in as the first argument.<p>
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+      </div> <!-- #main -->
+      <div id="footer">
+        <p><a href="http://prototypejs.org">Prototype JavaScript Framework</a> v1.7 API documentation.</p>
+        <p>
+            Last updated on November 16, 2010 at 10:11 UTC.
+          Generated by <a href="http://pdoc.org">PDoc</a>.
+          Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> and portions of <a href="http://github.com/280north/aristo/tree/master" title="280north's aristo at master - GitHub">Aristo</a>.
+        </p>
+        <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</p>
+      </div> <!-- #footer -->
+    </div> <!-- #page -->
+  </body>
+</html>

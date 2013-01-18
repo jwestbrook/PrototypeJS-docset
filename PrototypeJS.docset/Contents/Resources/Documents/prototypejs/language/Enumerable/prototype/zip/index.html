@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <title>Prototype  v1.7 API documentation | Enumerable#zip</title>
+  <link charset="utf-8" href="../../../../stylesheets/pdoc/api.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link charset="utf-8" href="../../../../stylesheets/pdoc/pygments.css" media="screen, projection" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div id="page">
+      <div id="main" class="page-content">
+<ul class="breadcrumbs clearfix">
+  <li><a href="../../../../">Home</a></li>
+    <li>&rarr; <a href="../../../../language/" title="Language section">Language</a></li>
+    <li>&rarr; <a href="../../../../language/Enumerable/" title="Enumerable (mixin)">Enumerable</a></li>
+    <li>&rarr; <a href="../../../../language/Enumerable/prototype/zip/" title="Enumerable#zip (instance method)">zip</a></li>
+</ul>
+<h2 class="page-title">
+  <span class="type">instance method</span> Enumerable#zip
+</h2>
+  <p id="src_code_href"><a href="https://github.com/sstephenson/prototype/blob/1fb9728/src/lang/enumerable.js#L728">View source on GitHub &rarr;</a></p>
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Enumerable#zip(sequence...[, iterator = Prototype.K]) &rarr; <a href="../../../../language/Array/" title="Array (class)">Array</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">sequence</code>
+          <span class="argument-types">(<code><a href="../../../../language/Object/" title="Object (class)">Object</a></code>)</span>
+         &ndash; A sequence to zip with this enumerable (there can be several of these if desired).
+      </li>
+      <li>
+        <code class="argument-name">iterator</code>
+          <span class="argument-types">(<code><a href="../../../../language/Function/" title="Function (class)">Function</a></code>)</span>
+         &ndash; Optional function to use to transform the tuples once generated; this is always the last argument provided.
+      </li>
+  </ul> <!-- .argument-list -->
+      <p>Zips together (think of the zipper on a pair of trousers) 2+ sequences,
+returning a new array of tuples. Each tuple is an array containing one
+value per original sequence. Tuples can be transformed to something else
+by applying the optional <code>iterator</code> on them.</p>
+<p>If supplied, <code>iterator</code> is called with each tuple as its only argument
+and should return the value to use in place of that tuple.</p>
+<h5>Examples</h5>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">firstNames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;Nitin&#39;</span><span class="p">,</span> <span class="s1">&#39;Guy&#39;</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">lastNames</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span>  <span class="s1">&#39;Patel&#39;</span><span class="p">,</span> <span class="s1">&#39;Forcier&#39;</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">ages</span>       <span class="o">=</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span>     <span class="mi">41</span><span class="p">,</span>      <span class="mi">17</span><span class="p">];</span>
+ <span class="nx">firstNames</span><span class="p">.</span><span class="nx">zip</span><span class="p">(</span><span class="nx">lastNames</span><span class="p">);</span>
+<span class="c1">// -&gt; [[&#39;Jane&#39;, &#39;Doe&#39;], [&#39;Nitin&#39;, &#39;Patel&#39;], [&#39;Guy&#39;, &#39;Forcier&#39;]]</span>
+ <span class="nx">firstNames</span><span class="p">.</span><span class="nx">zip</span><span class="p">(</span><span class="nx">lastNames</span><span class="p">,</span> <span class="nx">ages</span><span class="p">);</span>
+<span class="c1">// -&gt; [[&#39;Jane&#39;, &#39;Doe&#39;, 23], [&#39;Nitin&#39;, &#39;Patel&#39;, 41], [&#39;Guy&#39;, &#39;Forcier&#39;, 17]]</span>
+ <span class="nx">firstNames</span><span class="p">.</span><span class="nx">zip</span><span class="p">(</span><span class="nx">lastNames</span><span class="p">,</span> <span class="nx">ages</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">tuple</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; is &#39;</span> <span class="o">+</span> <span class="nx">tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">});</span>
+<span class="c1">// -&gt; [&#39;Jane Doe is 23&#39;, &#39;Nitin Patel is 41&#39;, &#39;Guy Forcier is 17&#39;]</span>
+</pre>
+</div>
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+      </div> <!-- #main -->
+      <div id="footer">
+        <p><a href="http://prototypejs.org">Prototype JavaScript Framework</a> v1.7 API documentation.</p>
+        <p>
+            Last updated on November 16, 2010 at 10:11 UTC.
+          Generated by <a href="http://pdoc.org">PDoc</a>.
+          Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> and portions of <a href="http://github.com/280north/aristo/tree/master" title="280north's aristo at master - GitHub">Aristo</a>.
+        </p>
+        <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</p>
+      </div> <!-- #footer -->
+    </div> <!-- #page -->
+  </body>
+</html>

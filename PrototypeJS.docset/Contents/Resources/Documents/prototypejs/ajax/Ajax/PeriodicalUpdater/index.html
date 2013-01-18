@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <title>Prototype  v1.7 API documentation | Ajax.PeriodicalUpdater</title>
+  <link charset="utf-8" href="../../../stylesheets/pdoc/api.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link charset="utf-8" href="../../../stylesheets/pdoc/pygments.css" media="screen, projection" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div id="page">
+      <div id="main" class="page-content">
+<ul class="breadcrumbs clearfix">
+  <li><a href="../../../">Home</a></li>
+    <li>&rarr; <a href="../../../ajax/" title="Ajax section">Ajax</a></li>
+    <li>&rarr; <a href="../../../ajax/Ajax/" title="Ajax (namespace)">Ajax</a></li>
+    <li>&rarr; <a href="../../../ajax/Ajax/PeriodicalUpdater/" title="Ajax.PeriodicalUpdater (class)">PeriodicalUpdater</a></li>
+</ul>
+<h2 class="page-title">
+  <span class="type">class</span> Ajax.PeriodicalUpdater
+</h2>
+  <p id="src_code_href"><a href="https://github.com/sstephenson/prototype/blob/1fb9728/src/ajax/periodical_updater.js#L45">View source on GitHub &rarr;</a></p>
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+    <p>Periodically performs an Ajax request and updates a container's contents
+based on the response text.</p>
+<p><code><a href="../../../ajax/Ajax/PeriodicalUpdater/" title="Ajax.PeriodicalUpdater (class)">Ajax.PeriodicalUpdater</a></code> behaves like <code><a href="../../../ajax/Ajax/Updater/" title="Ajax.Updater (class)">Ajax.Updater</a></code>, but performs the
+update at a prescribed interval, rather than only once. (Note that it is
+<em>not</em> a subclass of <code><a href="../../../ajax/Ajax/Updater/" title="Ajax.Updater (class)">Ajax.Updater</a></code>; it's a wrapper around it.)</p>
+<p>This class addresses the common need of periodical update, as required by
+all sorts of "polling" mechanisms (e.g., an online chatroom or an online
+mail client).</p>
+<p>The basic idea is to run a regular <code><a href="../../../ajax/Ajax/Updater/" title="Ajax.Updater (class)">Ajax.Updater</a></code> at regular intervals,
+keeping track of the response text so it can (optionally) react to
+receiving the exact same response consecutively.</p>
+<h5>Additional options</h5>
+<p><code><a href="../../../ajax/Ajax/PeriodicalUpdater/" title="Ajax.PeriodicalUpdater (class)">Ajax.PeriodicalUpdater</a></code> features all the common options and callbacks
+described in the <a href="../../../ajax/Ajax/" title="Ajax (namespace)">Ajax</a> &mdash; <em>plus</em> those added by
+<code><a href="../../../ajax/Ajax/Updater/" title="Ajax.Updater (class)">Ajax.Updater</a></code>.</p>
+<p>It also provides two new options:</p>
+<ul>
+<li><code>frequency</code> (<code><a href="../../../language/Number/" title="Number (class)">Number</a></code>; default is <code>2</code>): How long, in seconds, to wait
+between the end of one request and the beginning of the next.</li>
+<li><code>decay</code> (<code><a href="../../../language/Number/" title="Number (class)">Number</a></code>; default is <code>1</code>): The rate at which the <code>frequency</code>
+grows when the response received is <em>exactly</em> the same as the previous.
+The default of <code>1</code> means <code>frequency</code> will never grow; override the
+default if a stale response implies it's worthwhile to poll less often.
+If <code>decay</code> is set to <code>2</code>, for instance, <code>frequency</code> will double
+(2 seconds, 4 seconds, 8 seconds...) each consecutive time the result
+is the same; when the result is different once again, <code>frequency</code> will
+revert to its original value.</li>
+</ul>
+<h5>Disabling and re-enabling a <code><a href="../../../ajax/Ajax/PeriodicalUpdater/" title="Ajax.PeriodicalUpdater (class)">Ajax.PeriodicalUpdater</a></code></h5>
+<p>You can hit the brakes on a running <code><a href="../../../ajax/Ajax/PeriodicalUpdater/" title="Ajax.PeriodicalUpdater (class)">Ajax.PeriodicalUpdater</a></code> by calling
+<code><a href="../../../ajax/Ajax/PeriodicalUpdater/prototype/stop/" title="Ajax.PeriodicalUpdater#stop (instance method)">Ajax.PeriodicalUpdater#stop</a></code>. If you wish to re-enable it later, call
+<code><a href="../../../ajax/Ajax/PeriodicalUpdater/prototype/start/" title="Ajax.PeriodicalUpdater#start (instance method)">Ajax.PeriodicalUpdater#start</a></code>.</p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+                <div class="section section-constructor">
+                <div class="section-title">
+                  <h3>Constructor</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+    <p><code><a href="../../../ajax/Ajax/PeriodicalUpdater/new/" title="new Ajax.PeriodicalUpdater (constructor)">new Ajax.PeriodicalUpdater</a></code></p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+                  <div class="section section-instance_methods">
+                <div class="section-title">
+                  <h3>Instance methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+      <ul class="method-list">
+        <li><code><a class="instance-method" href="../../../ajax/Ajax/PeriodicalUpdater/prototype/start/" title="Ajax.PeriodicalUpdater#start (instance method)">start</a></code></li>
+<li><code><a class="instance-method" href="../../../ajax/Ajax/PeriodicalUpdater/prototype/stop/" title="Ajax.PeriodicalUpdater#stop (instance method)">stop</a></code></li>
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+      </div> <!-- #main -->
+      <div id="footer">
+        <p><a href="http://prototypejs.org">Prototype JavaScript Framework</a> v1.7 API documentation.</p>
+        <p>
+            Last updated on November 16, 2010 at 10:11 UTC.
+          Generated by <a href="http://pdoc.org">PDoc</a>.
+          Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> and portions of <a href="http://github.com/280north/aristo/tree/master" title="280north's aristo at master - GitHub">Aristo</a>.
+        </p>
+        <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</p>
+      </div> <!-- #footer -->
+    </div> <!-- #page -->
+  </body>
+</html>

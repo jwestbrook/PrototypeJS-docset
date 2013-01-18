@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <title>Prototype  v1.7 API documentation | Enumerable#grep</title>
+  <link charset="utf-8" href="../../../../stylesheets/pdoc/api.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link charset="utf-8" href="../../../../stylesheets/pdoc/pygments.css" media="screen, projection" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div id="page">
+      <div id="main" class="page-content">
+<ul class="breadcrumbs clearfix">
+  <li><a href="../../../../">Home</a></li>
+    <li>&rarr; <a href="../../../../language/" title="Language section">Language</a></li>
+    <li>&rarr; <a href="../../../../language/Enumerable/" title="Enumerable (mixin)">Enumerable</a></li>
+    <li>&rarr; <a href="../../../../language/Enumerable/prototype/grep/" title="Enumerable#grep (instance method)">grep</a></li>
+</ul>
+<h2 class="page-title">
+  <span class="type">instance method</span> Enumerable#grep
+</h2>
+  <p id="src_code_href"><a href="https://github.com/sstephenson/prototype/blob/1fb9728/src/lang/enumerable.js#L339">View source on GitHub &rarr;</a></p>
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Enumerable#grep(filter[, iterator = Prototype.K[, context]]) &rarr; <a href="../../../../language/Array/" title="Array (class)">Array</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">filter</code>
+          <span class="argument-types">(<code><a href="../../../../language/RegExp/" title="RegExp (class)">RegExp</a></code> | <code><a href="../../../../language/String/" title="String (class)">String</a></code> | <code><a href="../../../../language/Object/" title="Object (class)">Object</a></code>)</span>
+         &ndash; The filter to apply to elements. This can be a <code>RegExp</code> instance, a regular expression <code><a href="../../../../language/String/" title="String (class)">String</a></code>, or any object with a <code>match</code> function.
+      </li>
+      <li>
+        <code class="argument-name">iterator</code>
+          <span class="argument-types">(<code><a href="../../../../language/Function/" title="Function (class)">Function</a></code>)</span>
+         &ndash; An optional function to apply to selected elements before including them in the result.
+      </li>
+      <li>
+        <code class="argument-name">context</code>
+          <span class="argument-types">(<code><a href="../../../../language/Object/" title="Object (class)">Object</a></code>)</span>
+         &ndash; An optional object to use as <code>this</code> within calls to the iterator.
+      </li>
+  </ul> <!-- .argument-list -->
+      <p>Returns an array containing all of the elements for which the given
+filter returns <code>true</code> (or a truthy value). If an iterator is provided,
+it is used to produce the returned value for each selected element; this
+is done <em>after</em> the element has been selected by the filter.</p>
+<p>If the given filter is a <code><a href="../../../../language/String/" title="String (class)">String</a></code>, it is converted into a <code>RegExp</code>
+object. To select elements, each element is passed into the filter's
+<code>match</code> function, which should return a truthy value to select the element
+or a falsy value not to. Note that the <code>RegExp</code> <code>match</code> function will
+convert elements to Strings to perform matching.</p>
+<h5>Examples</h5>
+<div class="highlight"><pre><span class="c1">// Get all strings containing a repeated letter</span>
+<span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">,</span> <span class="s1">&#39;this&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;cool&#39;</span><span class="p">].</span><span class="nx">grep</span><span class="p">(</span><span class="sr">/(.)\1/</span><span class="p">);</span>
+<span class="c1">// -&gt; [&#39;hello&#39;, &#39;cool&#39;]</span>
+ <span class="c1">// Get all numbers ending with 0 or 5 and subtract 1 from them</span>
+<span class="nx">$R</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">).</span><span class="nx">grep</span><span class="p">(</span><span class="sr">/[05]$/</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="p">});</span>
+<span class="c1">// -&gt; [4, 9, 14, 19, 24, 29]</span>
+</pre>
+</div>
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+      </div> <!-- #main -->
+      <div id="footer">
+        <p><a href="http://prototypejs.org">Prototype JavaScript Framework</a> v1.7 API documentation.</p>
+        <p>
+            Last updated on November 16, 2010 at 10:11 UTC.
+          Generated by <a href="http://pdoc.org">PDoc</a>.
+          Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> and portions of <a href="http://github.com/280north/aristo/tree/master" title="280north's aristo at master - GitHub">Aristo</a>.
+        </p>
+        <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</p>
+      </div> <!-- #footer -->
+    </div> <!-- #page -->
+  </body>
+</html>

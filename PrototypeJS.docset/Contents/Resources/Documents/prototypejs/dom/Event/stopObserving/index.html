@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <title>Prototype  v1.7 API documentation | Event.stopObserving</title>
+  <link charset="utf-8" href="../../../stylesheets/pdoc/api.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link charset="utf-8" href="../../../stylesheets/pdoc/pygments.css" media="screen, projection" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div id="page">
+      <div id="main" class="page-content">
+<ul class="breadcrumbs clearfix">
+  <li><a href="../../../">Home</a></li>
+    <li>&rarr; <a href="../../../dom/" title="DOM section">DOM</a></li>
+    <li>&rarr; <a href="../../../dom/Event/" title="Event (class)">Event</a></li>
+    <li>&rarr; <a href="../../../dom/Event/stopObserving/" title="Event.stopObserving (class method)">stopObserving</a></li>
+</ul>
+<h2 class="page-title">
+  <span class="type">class method</span> Event.stopObserving
+</h2>
+  <p id="src_code_href"><a href="https://github.com/sstephenson/prototype/blob/1fb9728/src/dom/event.js#L832">View source on GitHub &rarr;</a></p>
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Event.stopObserving(element[, eventName[, handler]]) &rarr; <a href="../../../dom/Element/" title="Element (class)">Element</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">element</code>
+          <span class="argument-types">(<code><a href="../../../dom/Element/" title="Element (class)">Element</a></code> | <code><a href="../../../language/String/" title="String (class)">String</a></code>)</span>
+         &ndash; The element to stop observing, or its ID.
+      </li>
+      <li>
+        <code class="argument-name">eventName</code>
+          <span class="argument-types">(<code><a href="../../../language/String/" title="String (class)">String</a></code>)</span>
+         &ndash; <em>(Optional)</em> The name of the event to stop observing, in all lower case, without the "on"&nbsp;&mdash; e.g., "click" (not "onclick").
+      </li>
+      <li>
+        <code class="argument-name">handler</code>
+          <span class="argument-types">(<code><a href="../../../language/Function/" title="Function (class)">Function</a></code>)</span>
+         &ndash; <em>(Optional)</em> The handler to remove; must be the <em>exact same</em> reference that was passed to <code><a href="../../../dom/Event/observe/" title="Event.observe (class method)">Event.observe</a></code>.
+      </li>
+  </ul> <!-- .argument-list -->
+      <p>Unregisters one or more event handlers.</p>
+<p>If <code>handler</code> is omitted, unregisters all event handlers on <code>element</code>
+for that <code>eventName</code>. If <code>eventName</code> is also omitted, unregisters <em>all</em>
+event handlers on <code>element</code>. (In each case, only affects handlers
+registered via Prototype.)</p>
+<h5>Examples</h5>
+<p>Assuming:</p>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">observe</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">myHandler</span><span class="p">);</span>
+</pre>
+</div>
+<p>...we can stop observing using that handler like so:</p>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">stopObserving</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">myHandler</span><span class="p">);</span>
+</pre>
+</div>
+<p>If we want to remove <em>all</em> 'click' handlers from 'foo', we leave off the
+handler argument:</p>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">stopObserving</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">);</span>
+</pre>
+</div>
+<p>If we want to remove <em>all</em> handlers for <em>all</em> events from 'foo' (perhaps
+we're about to remove it from the DOM), we simply omit both the handler
+and the event name:</p>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">stopObserving</span><span class="p">();</span>
+</pre>
+</div>
+<h5>A Common Error</h5>
+<p>When using instance methods as observers, it's common to use
+<code><a href="../../../language/Function/prototype/bind/" title="Function#bind (instance method)">Function#bind</a></code> on them, e.g.:</p>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">observe</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">handlerMethod</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+</pre>
+</div>
+<p>If you do that, <strong>this will not work</strong> to unregister the handler:</p>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">stopObserving</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">handlerMethod</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span> <span class="c1">// &lt;== WRONG</span>
+</pre>
+</div>
+<p><code><a href="../../../language/Function/prototype/bind/" title="Function#bind (instance method)">Function#bind</a></code> returns a <em>new</em> function every time it's called, and so
+if you don't retain the reference you used when observing, you can't
+unhook that function specifically. (You can still unhook <strong>all</strong> handlers
+for an event, or all handlers on the element entirely.)</p>
+<p>To do this, you need to keep a reference to the bound function:</p>
+<div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">boundHandlerMethod</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handlerMethod</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">observe</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">boundHandlerMethod</span><span class="p">);</span>
+</pre>
+</div>
+<p>...and then to remove:</p>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">stopObserving</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">boundHandlerMethod</span><span class="p">);</span> <span class="c1">// &lt;== Right</span>
+</pre>
+</div>
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+      </div> <!-- #main -->
+      <div id="footer">
+        <p><a href="http://prototypejs.org">Prototype JavaScript Framework</a> v1.7 API documentation.</p>
+        <p>
+            Last updated on November 16, 2010 at 10:11 UTC.
+          Generated by <a href="http://pdoc.org">PDoc</a>.
+          Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> and portions of <a href="http://github.com/280north/aristo/tree/master" title="280north's aristo at master - GitHub">Aristo</a>.
+        </p>
+        <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</p>
+      </div> <!-- #footer -->
+    </div> <!-- #page -->
+  </body>
+</html>

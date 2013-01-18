@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <title>Prototype  v1.7 API documentation | Enumerable#inGroupsOf</title>
+  <link charset="utf-8" href="../../../../stylesheets/pdoc/api.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link charset="utf-8" href="../../../../stylesheets/pdoc/pygments.css" media="screen, projection" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div id="page">
+      <div id="main" class="page-content">
+<ul class="breadcrumbs clearfix">
+  <li><a href="../../../../">Home</a></li>
+    <li>&rarr; <a href="../../../../language/" title="Language section">Language</a></li>
+    <li>&rarr; <a href="../../../../language/Enumerable/" title="Enumerable (mixin)">Enumerable</a></li>
+    <li>&rarr; <a href="../../../../language/Enumerable/prototype/inGroupsOf/" title="Enumerable#inGroupsOf (instance method)">inGroupsOf</a></li>
+</ul>
+<h2 class="page-title">
+  <span class="type">instance method</span> Enumerable#inGroupsOf
+</h2>
+  <p id="src_code_href"><a href="https://github.com/sstephenson/prototype/blob/1fb9728/src/lang/enumerable.js#L412">View source on GitHub &rarr;</a></p>
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Enumerable#inGroupsOf(number[, fillWith = null]) &rarr; [group…]</code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">number</code>
+          <span class="argument-types">(<code><a href="../../../../language/Number/" title="Number (class)">Number</a></code>)</span>
+         &ndash; The number of items to include in each group.
+      </li>
+      <li>
+        <code class="argument-name">fillWith</code>
+          <span class="argument-types">(<code><a href="../../../../language/Object/" title="Object (class)">Object</a></code>)</span>
+         &ndash; An optional filler to use if the last group needs any; defaults to <code>null</code>.
+      </li>
+  </ul> <!-- .argument-list -->
+      <p>Like <code><a href="../../../../language/Enumerable/prototype/eachSlice/" title="Enumerable#eachSlice (instance method)">Enumerable#eachSlice</a></code>, but pads out the last chunk with the
+specified value if necessary and doesn't support the <code>iterator</code> function.</p>
+<h5>Examples</h5>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">students</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Sunny&#39;</span><span class="p">,</span>  <span class="nx">age</span><span class="o">:</span> <span class="mi">20</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Audrey&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">21</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Matt&#39;</span><span class="p">,</span>   <span class="nx">age</span><span class="o">:</span> <span class="mi">20</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Amelie&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">26</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Will&#39;</span><span class="p">,</span>   <span class="nx">age</span><span class="o">:</span> <span class="mi">21</span> <span class="p">}</span>
+<span class="p">];</span>
+ <span class="nx">students</span><span class="p">.</span><span class="nx">inGroupsOf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">0</span> <span class="p">});</span>
+<span class="c1">// -&gt; [</span>
+<span class="c1">//      [{ name: &#39;Sunny&#39;, age: 20 }, { name: &#39;Audrey&#39;, age: 21 }],</span>
+<span class="c1">//      [{ name: &#39;Matt&#39;, age: 20 },  { name: &#39;Amelie&#39;, age: 26 }],</span>
+<span class="c1">//      [{ name: &#39;Will&#39;, age: 21 },  { name: &#39;&#39;, age: 0 }]</span>
+<span class="c1">//    ]</span>
+</pre>
+</div>
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+      </div> <!-- #main -->
+      <div id="footer">
+        <p><a href="http://prototypejs.org">Prototype JavaScript Framework</a> v1.7 API documentation.</p>
+        <p>
+            Last updated on November 16, 2010 at 10:11 UTC.
+          Generated by <a href="http://pdoc.org">PDoc</a>.
+          Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> and portions of <a href="http://github.com/280north/aristo/tree/master" title="280north's aristo at master - GitHub">Aristo</a>.
+        </p>
+        <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</p>
+      </div> <!-- #footer -->
+    </div> <!-- #page -->
+  </body>
+</html>

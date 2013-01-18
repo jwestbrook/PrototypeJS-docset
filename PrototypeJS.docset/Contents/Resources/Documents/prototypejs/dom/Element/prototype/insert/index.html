@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <title>Prototype  v1.7 API documentation | Element#insert</title>
+  <link charset="utf-8" href="../../../../stylesheets/pdoc/api.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link charset="utf-8" href="../../../../stylesheets/pdoc/pygments.css" media="screen, projection" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div id="page">
+      <div id="main" class="page-content">
+<ul class="breadcrumbs clearfix">
+  <li><a href="../../../../">Home</a></li>
+    <li>&rarr; <a href="../../../../dom/" title="DOM section">DOM</a></li>
+    <li>&rarr; <a href="../../../../dom/Element/" title="Element (class)">Element</a></li>
+    <li>&rarr; <a href="../../../../dom/Element/prototype/insert/" title="Element#insert (instance method)">insert</a></li>
+</ul>
+<h2 class="page-title">
+  <span class="type">instance method</span> Element#insert
+</h2>
+  <p id="src_code_href"><a href="https://github.com/sstephenson/prototype/blob/1fb9728/src/dom/dom.js#L793">View source on GitHub &rarr;</a></p>
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element#insert(content) &rarr; <a href="../../../../dom/Element/" title="Element (class)">Element</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">content</code>
+          <span class="argument-types">(<code><a href="../../../../language/String/" title="String (class)">String</a></code> | <code><a href="../../../../dom/Element/" title="Element (class)">Element</a></code> | <code><a href="../../../../language/Object/" title="Object (class)">Object</a></code>)</span>
+         &ndash; The content to insert.
+      </li>
+  </ul> <!-- .argument-list -->
+      <p>Inserts content <code>above</code>, <code>below</code>, at the <code>top</code>, and/or at the <code>bottom</code> of
+the given element, depending on the option(s) given.</p>
+<p><code>insert</code> accepts content in any of these forms:
+- <code><a href="../../../../language/String/" title="String (class)">String</a></code>: A string of HTML to be parsed and rendered
+- <code><a href="../../../../dom/Element/" title="Element (class)">Element</a></code>: An Element instance to insert
+- ...any object with a <code>toElement</code> method: The method is called and the resulting element used
+- ...any object with a <code>toHTML</code> method: The method is called and the resulting HTML string
+  is parsed and rendered</p>
+<p>The <code>content</code> argument can be the content to insert, in which case the
+implied insertion point is <code>bottom</code>, or an object that specifies one or
+more insertion points (e.g., <code>{ bottom: "foo", top: "bar" }</code>).</p>
+<p>Accepted insertion points are:
+- <code>before</code> (as <code>element</code>'s previous sibling)
+- <code>after</code> (as <code>element's</code> next sibling)
+- <code>top</code> (as <code>element</code>'s first child)
+- <code>bottom</code> (as <code>element</code>'s last child)</p>
+<p>Note that if the inserted HTML contains any <code>&lt;script&gt;</code> tag, these will be
+automatically evaluated after the insertion (<code>insert</code> internally calls
+String.evalScripts when inserting HTML).</p>
+<h5>Examples</h5>
+<p>Insert the given HTML at the bottom of the element (using the default):</p>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;myelement&#39;</span><span class="p">).</span><span class="nx">insert</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;HTML to append&lt;/p&gt;&quot;</span><span class="p">);</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;myelement&#39;</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span>
+  <span class="nx">top</span><span class="o">:</span> <span class="k">new</span> <span class="nx">Element</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;logo.png&#39;</span><span class="p">})</span>
+<span class="p">});</span>
+</pre>
+</div>
+<p>Put <code>hr</code>s <code>before</code> and <code>after</code> the element:</p>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;myelement&#39;</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="s2">&quot;&lt;hr&gt;&quot;</span><span class="p">,</span>
+  <span class="nx">after</span><span class="o">:</span> <span class="s2">&quot;&lt;hr&gt;&quot;</span>
+<span class="p">});</span>
+</pre>
+</div>
+        <p class="note">
+    This method can be called <em>either</em> as an instance method <em>or</em> as a <a href="../../../../dom/Element/insert/">generic method</a>.
+  If calling as a generic, pass the instance in as the first argument.<p>
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+      </div> <!-- #main -->
+      <div id="footer">
+        <p><a href="http://prototypejs.org">Prototype JavaScript Framework</a> v1.7 API documentation.</p>
+        <p>
+            Last updated on November 16, 2010 at 10:11 UTC.
+          Generated by <a href="http://pdoc.org">PDoc</a>.
+          Uses <a href="http://famfamfam.com/lab/icons/silk/" title="famfamfam.com: Silk Icons">Silk Icons</a> and portions of <a href="http://github.com/280north/aristo/tree/master" title="280north's aristo at master - GitHub">Aristo</a>.
+        </p>
+        <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</p>
+      </div> <!-- #footer -->
+    </div> <!-- #page -->
+  </body>
+</html>
